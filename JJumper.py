@@ -7,7 +7,7 @@ from os import system
 
 ############### APP CONFIGURATION #########################
 # Put here list of your current projects
-projects = ['CHAT', 'WSM', 'EE', 'WMO', 'RR', 'ZZZ']
+projects = ['CHAT', 'WSM', 'EE', 'ADI']
 
 # Project that will bw open if letters index is not specified
 default_project = 'EE'
