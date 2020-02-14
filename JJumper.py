@@ -1,9 +1,10 @@
-# import pyperclip
 import webbrowser
-from Tkinter import *
+try:
+    from Tkinter import *
+except:
+    from tkinter import *
 from platform import system as platform
 from os import system
-
 
 ############### APP CONFIGURATION #########################
 # Put here list of your current projects
@@ -19,17 +20,23 @@ input_font = 'Verdana 18'
 destroy_app_in_the_end = True # True or False
 
 # Your Chrome path (It may be Firefox or Opera too)
-chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+chrome_path_windows = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+chrome_path_macos = 'open -a /Applications/Google\ Chrome.app %s'
 ###########################################################
+
+if platform() == 'Darwin':
+    chrome_path = chrome_path_macos
+elif platform() == 'Windows':
+    chrome_path = chrome_path_windows
 
 
 def on_key_release(event):
     ctrl = (event.state & 0x4) != 0
-    if event.keycode==88 and  ctrl and event.keysym.lower() != "x":
+    if event.keycode == 88 and ctrl and event.keysym.lower() != "x":
         event.widget.event_generate("<<Cut>>")
-    if event.keycode==86 and  ctrl and event.keysym.lower() != "v":
+    if event.keycode == 86 and ctrl and event.keysym.lower() != "v":
         event.widget.event_generate("<<Paste>>")
-    if event.keycode==67 and  ctrl and event.keysym.lower() != "c":
+    if event.keycode == 67 and ctrl and event.keysym.lower() != "c":
         event.widget.event_generate("<<Copy>>")
 
 
