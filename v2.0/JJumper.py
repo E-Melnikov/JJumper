@@ -24,7 +24,7 @@ buttons_font_status = 'Verdana 11'
 input_font = 'Verdana 18'
 
 # Values: True or False
-destroy_app_in_the_end = False # True or False
+destroy_app_in_the_end = True # True or False
 
 ###########################################################
 
